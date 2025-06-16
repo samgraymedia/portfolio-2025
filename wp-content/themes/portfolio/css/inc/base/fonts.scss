@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
+// Font Families
+$font-display: "Playfair Display", serif;
+$font-body: "Inter", sans-serif;
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Base font settings
+* {
+  font-family: $font-body;
+  color: $offWhite;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-display;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  color: $white !important;
+  color: inherit;
+  background: linear-gradient(45deg, $white, $black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  a {
+    font-family: $font-display;
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+a {
+  color: $white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $offWhite;
+  }
+
+  &:focus {
+    outline: 2px solid $white;
+    outline-offset: 4px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+.animated-link {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: $white;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: $font-weight-bold;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: $font-weight-semibold;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 3.75rem;
+  font-weight: $font-weight-semibold;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 3.5rem;
+  font-weight: $font-weight-medium;
+  margin-bottom: 0.75rem;
+}
+
+h5 {
+  font-size: 3rem;
+  font-weight: $font-weight-medium;
+  margin-bottom: 0.5rem;
+}
+
+h6 {
+  font-size: 2.75rem;
+  font-weight: $font-weight-medium;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: $offWhite;
+  &.large {
+    font-size: 1.5rem;
+  }
+}

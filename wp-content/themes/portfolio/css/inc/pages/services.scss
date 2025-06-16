@@ -1,0 +1,85 @@
+.services-archive {
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba($white, 0.08);
+  border-bottom: 1px solid rgba($white, 0.08);
+
+  .service-block {
+    display: flex;
+    gap: 3rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid rgba($white, 0.08);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &__left {
+      flex: 1 1 350px;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__title {
+      font-family: $font-display;
+      font-size: 2.8rem;
+      font-weight: $font-weight-bold;
+      color: $white;
+      margin-bottom: 1.5rem;
+    }
+
+    &__desc {
+      font-family: $font-body;
+      font-size: 1.35rem;
+      color: $offWhite;
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    &__price {
+      font-family: $font-body;
+      font-size: 1.25rem;
+      font-weight: $font-weight-bold;
+      color: $white;
+      margin-bottom: 0;
+    }
+
+    &__right {
+      flex: 2 1 0;
+      display: flex;
+      align-items: center;
+    }
+
+    &__features {
+      columns: 2; // or 3 for more columns
+      column-gap: 3rem;
+      list-style: disc inside;
+      font-size: 1.25rem;
+      color: $offWhite;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-bottom: 1.5rem;
+        break-inside: avoid;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .services-archive .service-block {
+    flex-direction: column;
+    gap: 2rem;
+
+    &__right {
+      margin-top: 1.5rem;
+    }
+    &__features {
+      columns: 1;
+    }
+  }
+}

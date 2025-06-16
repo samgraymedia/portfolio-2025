@@ -1,0 +1,24 @@
+.faq {
+  .faq-items {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    .faq-item {
+      flex: 1 1 calc(50% - 10px);
+      h3 {
+        color: $white;
+        font-size: $text-lg;
+        font-family: $font-body;
+        font-weight: $font-weight-bold;
+        margin-bottom: 10px;
+        cursor: pointer;
+        background: unset;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+      }
+      @media (max-width: $breakpoint-md) {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}

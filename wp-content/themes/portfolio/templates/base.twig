@@ -1,0 +1,50 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
+		<div class="header-wrapper">
+			<header class="header" >
+				{% block header %}
+					<div class="wrapper">
+						
+						<nav id="nav-main" class="nav-main" role="navigation">
+						<h1 class="hdr-logo" role="banner">
+							<a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+						</h1>
+						<button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+							<span class="menu-icon"></span>
+						</button>
+							{% include "menu.twig" with {'items': primary_nav.get_items, 'menu': primary_nav} %}
+						</nav><!-- #nav -->
+						</div>
+				{% endblock %}
+			</header>
+		</div>
+
+		<section id="content" role="main" class="content-wrapper">
+			<div class=" {{sidebar_class}}">
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+			</div>
+			{% if sidebar %}
+				<aside class="layout-sidebar">
+					{{sidebar}}
+				</aside>
+			{% endif %}
+		</section>
+
+		{% block footer %}
+			<footer id="footer">
+				{% include 'footer.twig' %}
+			</footer>
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>

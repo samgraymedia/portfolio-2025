@@ -1,0 +1,55 @@
+// Colors
+$white: #fafafa;
+$black: #080808;
+$offWhite: #a6a6a6;
+$offBlack: #0d0d0d;
+$red: #750909;
+// Type Scale
+$text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem); // Extra Small
+$text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem); // Small
+$text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem); // Base
+$text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem); // Large
+$text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem); // Heading 6
+$text-2xl: clamp(1.5rem, 1.3rem + 1vw, 1.875rem); // Heading 5
+$text-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.25rem); // Heading 4
+$text-4xl: clamp(2.25rem, 1.9rem + 1.75vw, 3rem); // Heading 3
+$text-5xl: clamp(3rem, 2.5rem + 2.5vw, 3.75rem); // Heading 2
+$text-6xl: clamp(3.75rem, 3rem + 3.75vw, 4.5rem); // Heading 1
+$text-7xl: clamp(2.5rem, 2rem + 3.5vw, 6rem); // Display Small
+$text-8xl: clamp(3rem, 2.5rem + 5vw, 8rem); // Display Medium
+$text-9xl: clamp(4rem, 3rem + 8vw, 12rem); // Display Large
+
+// Spacing & Layout
+$container-max-width: 1400px;
+$border-radius: 0.5rem;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Section Padding
+$section-padding: (
+  "xs": 1.5rem,
+  // px-6
+    "sm": 2rem,
+  // sm:px-8
+    "lg": 3rem,
+  // lg:px-12
+    "xl": 4rem,
+  // xl:px-16
+    "2xl": 5rem // 2xl:px-20,,,,,,,
+);
+
+// Animations
+$animation-duration: (
+  "fade-in": 0.6s,
+  "fade-in-up": 0.8s,
+  "scale-in": 0.5s,
+  "slide-in-right": 0.6s,
+  "float": 6s,
+);
+
+$animation-timing: ease-out;

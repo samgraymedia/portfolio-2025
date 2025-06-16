@@ -1,0 +1,110 @@
+.services-block {
+  background-color: $offBlack;
+
+  .services-title {
+    text-align: center;
+  }
+
+  .services-description {
+    font-size: $text-lg;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    opacity: 0.8;
+  }
+
+  .services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+
+    .services-item {
+      flex: 1 1 calc(33.33% - 2rem);
+      min-width: 280px;
+      background: rgba($white, 0.03);
+      border: 1px solid rgba($white, 0.1);
+      border-radius: $border-radius;
+      padding: 2rem;
+      transition: all 0.3s $animation-timing;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba($white, 0.03),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s $animation-timing;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        background: rgba($white, 0.05);
+        border-color: rgba($white, 0.2);
+        box-shadow: 0 10px 30px rgba($black, 0.3);
+
+        &::before {
+          transform: translateX(100%);
+        }
+
+        .services-item-title {
+          color: $white;
+        }
+      }
+
+      .services-item-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .services-item-title {
+        font-size: $text-2xl;
+        margin-bottom: 1rem;
+        color: $offWhite;
+        transition: color 0.3s ease;
+      }
+
+      .services-item-excerpt {
+        font-size: $text-base;
+
+        color: rgba($offWhite, 0.8);
+      }
+    }
+
+    .services-item-link {
+      width: 100%;
+      text-align: center;
+      margin-top: 3rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .services-block {
+    .services-grid {
+      .services-item {
+        flex: 1 1 calc(50% - 2rem);
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .services-block {
+    .services-grid {
+      .services-item {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}

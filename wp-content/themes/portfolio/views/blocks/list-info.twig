@@ -1,0 +1,44 @@
+{#
+Title: List Info
+Description: A flexible block for displaying information in a list format with customizable content
+Category: formatting
+Icon: <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="#fff" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+Keywords: List Info, Information List, Content List
+Mode: auto
+Align: full
+PostTypes: page post
+SupportsAlign: full
+SupportsMode: true
+SupportsMultiple: true
+#}
+<div id="list-info-{{block.id}}" class="list-info-block block {{block.classes}} {% if fields.variant == 'variant one' %}variant-one{% endif %}">
+  <div class="wrapper">
+    <div class="list-info-block__header">
+      <h2 class="list-info-block__title">{{ fields.title }}</h2>
+      {% if fields.description %}
+        <p class="list-info-block__description">{{ fields.description }}</p>
+      {% endif %}
+    </div>
+    <div class="list-info-block__columns {% if fields.variant == 'variant one' %}variant-one{% else %}variant-two{% endif %}">
+      {% if fields.variant == 'variant one' %}
+        {% for column in fields.variant_one.columns %}
+          <div class="list-info-block__column">
+            <h3 class="list-info-block__column-title">{{ column.heading }}</h3>
+            <ul class="list-info-block__items">
+              {% for item in column.items %}
+                <li class="list-info-block__item">{{ item.text }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for column in fields.variant_two.columns_copy %}
+          <div class="list-info-block__column">
+            <h3 class="list-info-block__column-title">{{ column.heading }}</h3>
+            <p class="list-info-block__description">{{ column.text }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-family: $font-body;
+  font-size: $text-base;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 0;
+  border: 2px solid $white;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  cursor: crosshair;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($white, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    transform: translateX(0);
+  }
+
+  &-primary {
+    border: 2px solid $white;
+    background-color: $white;
+    color: $black;
+
+    &:hover {
+      background-color: transparent;
+      color: $white;
+    }
+  }
+
+  &-secondary {
+    background-color: transparent;
+    color: $white;
+    border: 2px solid $white;
+
+    &:hover {
+      background-color: rgba($white, 0.1);
+      // letter-spacing: 1px;
+    }
+  }
+}
+.link {
+  cursor: crosshair;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: $text-lg;
+  color: $white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border: 1px solid rgba($white, 0.2);
+  border-radius: $border-radius;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba($white, 0.1), rgba($white, 0.2));
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    z-index: -1;
+  }
+
+  &:hover {
+    background: transparent;
+    border-color: rgba($white, 0.4);
+    transform: translateX(8px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    &::before {
+      transform: translateX(0);
+    }
+
+    .arrow-icon {
+      transform: translateX(8px) rotate(10deg);
+    }
+  }
+
+  .arrow-icon {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}

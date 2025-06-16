@@ -1,0 +1,80 @@
+.list-info-block {
+  background: $black;
+  color: $offWhite;
+  border-radius: $border-radius;
+  &.variant-one {
+    background: $offBlack;
+  }
+  &__header {
+    text-align: left;
+    margin-bottom: map-get($section-padding, "lg");
+  }
+
+  &__title {
+    font-family: $font-display;
+    margin-bottom: map-get($section-padding, "xs");
+    color: $white;
+  }
+
+  &__description {
+    font-family: $font-body;
+    font-size: $text-lg;
+    color: $offWhite;
+  }
+
+  &__columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: map-get($section-padding, "lg");
+    margin-top: map-get($section-padding, "sm");
+  }
+
+  &__column {
+    flex: 1 1 calc(33.33% - map-get($section-padding, "lg"));
+    text-align: left;
+  }
+  .variant-two {
+    .list-info-block__column {
+      flex: 1 1 calc(50% - map-get($section-padding, "lg"));
+    }
+  }
+
+  &__column-title {
+    font-family: $font-display;
+    font-size: $text-xl;
+    font-weight: $font-weight-semibold;
+    margin-bottom: map-get($section-padding, "xs");
+    color: $white;
+  }
+
+  &__items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    font-family: $font-body;
+    font-size: $text-base;
+    color: $offWhite;
+    margin-bottom: 0.7rem;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .list-info-block {
+    padding: map-get($section-padding, "sm") map-get($section-padding, "xs");
+    &__columns {
+      gap: map-get($section-padding, "xs");
+    }
+    &__column {
+      flex: 1 1 calc(50% - map-get($section-padding, "xs"));
+    }
+    .variant-two {
+      .list-info-block__column {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,262 @@
+// Portfolio Single Page Styles
+
+.portfolio-single {
+  background: $black;
+  color: $offWhite;
+  min-height: 100vh;
+  padding: 0 0 4rem 0;
+  font-family: $font-body;
+}
+
+.portfolio-back-link {
+  display: inline-block;
+  margin: 2rem 0 1.5rem 0;
+  color: $offWhite;
+  text-decoration: none;
+  font-size: $text-sm;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  &:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
+
+.portfolio-header-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: map-get($section-padding, "lg");
+  gap: 2.5rem;
+}
+
+.portfolio-header-content {
+  flex: 1 1 420px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.portfolio-meta {
+  font-size: $text-sm;
+  letter-spacing: 0.05em;
+  color: $offWhite;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  font-weight: $font-weight-medium;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.portfolio-dot {
+  margin: 0 0.5em;
+  font-size: 1.2em;
+  color: $offBlack;
+}
+
+.portfolio-title-large {
+  font-family: $font-display;
+  font-size: $text-5xl;
+  font-weight: $font-weight-bold;
+  margin: 0 0 1.2rem 0;
+
+  color: $white;
+}
+
+.portfolio-description {
+  font-size: $text-base;
+  color: $offWhite;
+  margin-bottom: 2rem;
+}
+
+.portfolio-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.7em 1.6em;
+  border-radius: $border-radius;
+  font-size: $text-base;
+  font-weight: $font-weight-medium;
+  background: $white;
+  color: $black;
+  border: none;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  font-family: $font-body;
+  &:hover {
+    background: $offBlack;
+    color: $white;
+  }
+}
+.button-outline {
+  background: transparent;
+  color: $white;
+  border: 1.5px solid $white;
+  &:hover {
+    background: $white;
+    color: $black;
+  }
+}
+
+.portfolio-header-image {
+  flex: 1 1 340px;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.portfolio-image {
+  width: 100%;
+  max-width: 480px;
+  border-radius: $border-radius;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  object-fit: cover;
+}
+
+.portfolio-details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  background: $offBlack;
+  padding: 2.5rem 2rem 2.5rem 2rem;
+  border-radius: $border-radius;
+}
+
+.portfolio-detail-label {
+  font-size: $text-xs;
+  color: $offWhite;
+  text-transform: uppercase;
+  font-weight: $font-weight-semibold;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.portfolio-detail-value {
+  font-size: $text-base;
+  color: $white;
+  font-weight: $font-weight-medium;
+}
+
+.portfolio-content-main {
+  font-size: $text-base;
+  padding-top: map-get($section-padding, "lg");
+  padding-bottom: map-get($section-padding, "lg");
+  color: $offWhite;
+
+  font-family: $font-body;
+}
+
+@media (max-width: 900px) {
+  .portfolio-header-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  .portfolio-header-image {
+    justify-content: center;
+  }
+  .portfolio-details-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-title-large {
+    font-size: $text-2xl;
+  }
+  .portfolio-details-grid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    padding: 1.2rem 0.5rem;
+  }
+  .portfolio-content-main {
+    padding: 1rem;
+  }
+  .portfolio-back-link {
+    margin-left: 1rem;
+  }
+}
+
+// Gallery Section
+.portfolio-gallery {
+  background: $black;
+  padding: 0 0 2.5rem 0;
+}
+.portfolio-gallery-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.portfolio-gallery-item {
+  width: 100%;
+  border-radius: $border-radius;
+  overflow: hidden;
+  background: $offBlack;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.25);
+  img {
+    width: 100%;
+    display: block;
+    border-radius: $border-radius;
+    object-fit: cover;
+  }
+}
+
+// Taxonomy Section
+.portfolio-taxonomies {
+  background: $offBlack;
+  padding: 2.5rem 2rem 2.5rem 2rem;
+  margin: 0 auto;
+}
+.portfolio-taxonomies-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 4rem;
+}
+.portfolio-taxonomy-col {
+  flex: 1 1 320px;
+  min-width: 260px;
+}
+.portfolio-taxonomy-label {
+  font-size: $text-sm;
+  color: $white;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.04em;
+}
+
+.portfolio-taxonomy-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.portfolio-taxonomy-list li {
+  font-size: $text-base;
+  color: $offWhite;
+  margin-bottom: 0.7rem;
+  font-weight: $font-weight-regular;
+}
+
+@media (max-width: 900px) {
+  .portfolio-taxonomies-inner {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .portfolio-gallery-grid {
+    padding: 0 1rem;
+  }
+}
