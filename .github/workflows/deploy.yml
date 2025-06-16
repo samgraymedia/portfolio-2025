@@ -1,0 +1,29 @@
+name: Deploy to WPEngine
+
+on:
+  push:
+    branches:
+      - development
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.WPENGINE_SSH_KEY }}
+
+      - name: Push to WPEngine (Staging or Production)
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/development" ]; then
+            git remote add wp git@git.wpengine.com:production/samuelgraystg.git
+            git push wp development:master
+          elif [ "${{ github.ref }}" = "refs/heads/master" ]; then
+            git remote add wp git@git.wpengine.com:production/samuelgrayprod.git
+            git push wp master:master
+          fi
