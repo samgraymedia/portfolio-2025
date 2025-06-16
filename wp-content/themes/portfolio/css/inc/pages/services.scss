@@ -1,5 +1,4 @@
 .services-archive {
-  padding: 2.5rem 0;
   border-top: 1px solid rgba($white, 0.08);
   border-bottom: 1px solid rgba($white, 0.08);
 
@@ -71,9 +70,13 @@
 }
 
 @media (max-width: 900px) {
+  .service-block {
+    padding: 0.2rem 0;
+  }
   .services-archive .service-block {
+    flex: unset;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 
     &__right {
       margin-top: 1.5rem;

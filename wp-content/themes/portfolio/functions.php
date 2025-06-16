@@ -72,6 +72,7 @@ class StarterSite extends Timber\Site {
 	/** Enqueue scripts and styles */
 	public function enqueue_scripts() {
 		wp_enqueue_script( 'portfolio-nav', get_template_directory_uri() . '/js/nav.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'portfolio-cookie-consent', get_template_directory_uri() . '/js/cookie-consent.js', array(), '1.0.0', true );
 	}
 
 	/** This is where you can register custom post types. */

@@ -1,5 +1,14 @@
 /*
-Theme Name: Abbie
+Theme Name: Portfolio
+Theme URI: https://samuelgray.co.uk
+Author: Samuel Gray
+Author URI: https://samuelgray.co.uk
+Description: A custom portfolio theme built with Timber and ACF
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: portfolio
+Tags: portfolio, timber, acf, custom
 */
 @import "./node_modules/bootstrap/scss/bootstrap";
 @import "./css/inc/base/vars";
@@ -19,6 +28,7 @@ Theme Name: Abbie
 @import "./css/inc/blocks/contact-form";
 @import "./css/inc/blocks/testimonial";
 @import "./css/inc/blocks/faq";
+@import "./css/inc/blocks/cookie-consent";
 
 // PAGES
 @import "./css/inc/pages/portfolio";
