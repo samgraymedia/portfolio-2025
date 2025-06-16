@@ -9,14 +9,22 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.WPENGINE_SSH_KEY }}
+
+      - name: Add WPEngine to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan git.wpengine.com >> ~/.ssh/known_hosts
 
       - name: Push to WPEngine (Staging or Production)
         run: |
