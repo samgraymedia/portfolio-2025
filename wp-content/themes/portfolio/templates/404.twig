@@ -1,5 +1,9 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	Sorry, we couldn't find what you're looking for.
+    <div class="error-404 wrapper">
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Sorry, we couldn't find what you're looking for.</p>
+        <a href="{{ site.url }}" class="btn btn-primary">Return to Homepage</a>
+    </div>
 {% endblock %}

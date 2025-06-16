@@ -21,21 +21,21 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Email Address',
                 'name' => 'contact_email',
                 'type' => 'email',
-                'default_value' => 'hello@creative.com',
+               
             ),
             array(
                 'key' => 'field_contact_phone',
                 'label' => 'Phone Number',
                 'name' => 'contact_phone',
                 'type' => 'text',
-                'default_value' => '+1 (234) 567-890',
+           
             ),
             array(
                 'key' => 'field_contact_location',
                 'label' => 'Location',
                 'name' => 'contact_location',
                 'type' => 'text',
-                'default_value' => 'New York, NY',
+               
             ),
             array(
                 'key' => 'field_contact_availability',

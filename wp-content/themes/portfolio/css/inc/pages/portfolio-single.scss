@@ -250,6 +250,15 @@
   font-weight: $font-weight-regular;
 }
 
+.portfolio-taxonomy-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  .badge {
+    background: $offWhite;
+    color: $black;
+  }
+}
 @media (max-width: 900px) {
   .portfolio-taxonomies-inner {
     flex-direction: column;
