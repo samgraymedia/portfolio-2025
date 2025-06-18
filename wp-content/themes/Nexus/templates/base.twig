@@ -1,0 +1,77 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
+		<header class="header" >
+			{% block header %}
+				<div class="wrapper">
+					<button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-main">
+						<span></span>
+					</button>
+					<nav id="nav-main" class="nav-main" role="navigation">
+					<h1 class="hdr-logo" role="banner">
+						<a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+					</h1>
+						{% include "menu.twig" with {'items': menu.get_items} %}
+					</nav><!-- #nav -->
+				</div>
+			{% endblock %}
+		</header>
+
+		<section id="content" role="main" class="content-wrapper">
+			{% if title %}<h1>{{title}}</h1>{% endif %}
+			<div class=" {{sidebar_class}}">
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+			</div>
+			{% if sidebar %}
+				<aside class="layout-sidebar">
+					{{sidebar}}
+				</aside>
+			{% endif %}
+		</section>
+
+		{% block footer %}
+			<footer id="footer">
+				{% include 'footer.twig' %}
+			</footer>
+			{{ function('wp_footer') }}
+		{% endblock %}
+		
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const header = document.querySelector('.header');
+			const navToggle = document.querySelector('.nav-toggle');
+			
+			function handleScroll() {
+				if (window.scrollY > 50) {
+					header.classList.add('scrolled');
+				} else {
+					header.classList.remove('scrolled');
+				}
+			}
+			
+			if (navToggle) {
+				navToggle.addEventListener('click', function() {
+					header.classList.toggle('nav-open');
+					const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+					navToggle.setAttribute('aria-expanded', !expanded);
+				});
+			}
+			
+			// Add scroll event listener
+			window.addEventListener('scroll', handleScroll);
+			
+			// Check initial scroll position
+			handleScroll();
+		});
+		</script>
+	</body>
+</html>

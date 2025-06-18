@@ -1,0 +1,72 @@
+{#
+Title: Tabs
+Description: A Custom Hero block
+Category: formatting
+Icon: <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="#fff" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" fill="#fff"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Keywords: Tabs Block
+Mode: auto
+Align: center
+PostTypes: page post
+SupportsAlign: left right center wide full
+SupportsMode: true
+SupportsMultiple: true
+#}
+<div id="tabs-{{ block.id }}" class="tabs block {{ block.classes }}">
+  <div class="wrapper">
+    <div class="tabs__inner">
+      <div class="tabs__title">
+        <h2>{{ fields.title }} <span class="tabs__title-colour">{{ fields.colour_title }}</span></h2>
+        <p>{{ fields.description }}</p>
+      </div>
+      <div class="tabs__content">
+        <div class="tab-controls">
+          {% for tab in fields.tabs %}
+            <button class="tab-control" data-tab="{{ loop.index0 }}">{{ tab.control }}</button>
+          {% endfor %}
+        </div>
+        <div class="tabs__content-items">
+          {% for tab in fields.tabs %}
+            <div class="tabs__content-item-tab" data-tab="{{ loop.index0 }}">
+              <div class="tabs__content-item-tab-left">
+                <h3>{{ tab.title }}</h3>
+                <p>{{ tab.description }}</p>
+                <ul>
+                  {% for item in tab.items %}
+                    <li>{{ item.title }}</li>
+                  {% endfor %}
+                </ul>
+                <a href="{{ tab.cta_link }}" class="btn btn--glass">{{ tab.cta_text }}</a>
+              </div>
+              <div class="tabs__content-item-tab-right">
+                <img src="{{ tab.image.url }}" alt="{{ tab.image.alt }}" />
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  (function() {
+    const tabs = document.querySelectorAll('#tabs-{{ block.id }} .tabs__content-item-tab');
+    const tabControls = document.querySelectorAll('#tabs-{{ block.id }} .tab-control');
+
+    if (tabControls.length > 0) {
+      tabControls[0].classList.add('active');
+    }
+    if (tabs.length > 0) {
+      tabs[0].classList.add('active');
+    }
+
+    tabControls.forEach(control => {
+      control.addEventListener('click', (e) => {
+        e.preventDefault();
+        tabControls.forEach(tab => tab.classList.remove('active'));
+        control.classList.add('active');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        tabs[control.dataset.tab].classList.add('active');
+      });
+    });
+  })();
+</script>

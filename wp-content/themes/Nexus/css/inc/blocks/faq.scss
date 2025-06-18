@@ -1,0 +1,91 @@
+.faq {
+  background-color: $lightGray;
+  &__inner {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: $grid-gap;
+  }
+  &__title {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: $grid-gap;
+    text-align: center;
+    h2 {
+      font-size: $font-5xl;
+      span {
+        font-size: inherit;
+        font-weight: inherit;
+        display: block;
+        background-image: linear-gradient(to right, $primary, $secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        transition: background-image 0.4s ease-in-out;
+      }
+    }
+    p {
+      font-size: $font-lg;
+      font-weight: $font-regular;
+      color: $black;
+      line-height: 1.5;
+    }
+  }
+  &__items {
+    display: flex;
+    flex-flow: column;
+    gap: $grid-gap;
+    width: 50%;
+  }
+  &__item {
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+    &:hover {
+      box-shadow: 0 0 10px 0 rgba($black, 0.2);
+      background-color: $white;
+    }
+    .faq__question {
+      border-radius: 10px;
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border: unset;
+      font-size: unset;
+      font-weight: unset;
+      padding: unset;
+      color: unset;
+      background-color: unset;
+      padding: 1rem;
+      border-bottom: 1px solid $primary;
+      text-align: left;
+      width: 100%;
+      span {
+        font-size: $font-lg;
+        font-weight: $font-medium;
+        color: $black;
+        line-height: 1.5;
+      }
+    }
+    .faq__answer {
+      padding: 1rem;
+      p {
+        font-size: $font-lg;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .faq {
+    &__items {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,243 @@
+.services-archive {
+  margin-top: 104px;
+  display: flex;
+  flex-direction: column;
+  gap: $grid-gap;
+  position: relative;
+  overflow: visible;
+}
+
+.service-block {
+  display: flex;
+  flex-direction: row;
+  background: $lightGray;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba($black, 0.08), 0 0 0 0 rgba($primary, 0.15);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s, border 0.3s;
+  position: relative;
+  gap: 0;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
+  z-index: 1;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 1.5rem;
+    padding: 2px;
+    background: linear-gradient(120deg, $primary, $secondary, $accent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  &:hover {
+    box-shadow: 0 8px 32px 0 rgba($black, 0.16),
+      0 0 24px 4px rgba($primary, 0.18);
+    transform: translateY(-4px) scale(1.025);
+    &::before {
+      opacity: 1;
+    }
+  }
+  &:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.25s;
+  }
+  &:nth-child(4) {
+    animation-delay: 0.35s;
+  }
+  &:nth-child(5) {
+    animation-delay: 0.45s;
+  }
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+  }
+}
+
+.service-block__left {
+  flex: 1 1 55%;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+  background: linear-gradient(
+    90deg,
+    rgba($primary, 0.07) 0%,
+    rgba($secondary, 0.04) 100%
+  );
+  @media (max-width: $breakpoint-md) {
+    padding: 2rem 1.2rem 1.2rem 1.2rem;
+  }
+}
+
+.service-block__title {
+  font-size: $font-3xl;
+  font-weight: $font-bold;
+  margin-bottom: 0.5rem;
+  background-image: linear-gradient(to right, $primary, $secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.service-block__desc {
+  font-size: $font-lg;
+  color: $black;
+  font-weight: $font-regular;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.service-block__price {
+  font-size: $font-xl;
+  font-weight: $font-bold;
+  color: $accent;
+  margin-bottom: 0.5rem;
+}
+
+.service-block__right {
+  flex: 1 1 45%;
+  background: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 2rem;
+  @media (max-width: $breakpoint-md) {
+    padding: 1.2rem;
+  }
+}
+
+.service-block__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: $font-md;
+    color: $darkPrimary;
+    font-weight: $font-medium;
+    transition: color 0.2s;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0.75rem;
+      height: 0.75rem;
+      background: linear-gradient(135deg, $primary 0%, $secondary 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px $white;
+      transition: box-shadow 0.3s, background 0.3s, transform 0.3s;
+    }
+    &:hover {
+      color: $accent;
+      &:before {
+        box-shadow: 0 0 0 4px rgba($accent, 0.18),
+          0 0 8px 2px rgba($primary, 0.12);
+        background: linear-gradient(135deg, $accent 0%, $secondary 100%);
+        transform: scale(1.15);
+      }
+    }
+  }
+}
+
+// Responsive tweaks
+@media (max-width: $breakpoint-md) {
+  .service-block {
+    flex-direction: column;
+  }
+  .service-block__left,
+  .service-block__right {
+    width: 100%;
+    padding: 1.2rem;
+  }
+  .services-archive::before {
+    width: 320px;
+    height: 120px;
+    top: -40px;
+  }
+}
+.services-archive__grid {
+  display: flex;
+  flex-direction: column;
+  gap: $grid-gap;
+  flex-wrap: wrap;
+}
+.services-archive__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  min-height: 50vh;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  background: radial-gradient(
+      circle at 60% 40%,
+      rgba($primary, 0.35) 0%,
+      rgba($primary, 0) 60%
+    ),
+    /* blue */
+      radial-gradient(
+        circle at 30% 60%,
+        rgba($lightPrimary, 0.25) 0%,
+        rgba($lightPrimary, 0) 55%
+      ),
+    /* purple */
+      radial-gradient(
+        circle at 80% 70%,
+        rgba($secondary, 0.25) 0%,
+        rgba($secondary, 0) 60%
+      ); /* peach */
+}
+
+.services-archive__title {
+  font-size: $font-5xl;
+  font-weight: $font-bold;
+  background-image: linear-gradient(to right, $primary, $secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.services-archive__desc {
+  font-size: $font-lg;
+  color: $darkPrimary;
+  font-weight: $font-regular;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+// Entrance Animation
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

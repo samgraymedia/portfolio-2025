@@ -1,0 +1,53 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% if page.content %}
+        {{ page.content }}
+    {% endif %}
+    <div class="portfolio-archive">
+        
+        <div class="portfolio-archive__header block">
+        <div class="wrapper">
+            <h1 class="portfolio-archive__title">Our Portfolio</h1> 
+            <p class="portfolio-archive__desc">We offer a range of services to help you achieve your goals.</p>
+        </div>
+        </div>
+        <div class="wrapper">
+        <div class="block">
+      
+        <div class="portfolio-archive__grid">
+        {% for service in services %}
+            <article class="portfolio-block">
+                <div class="portfolio-block__left">
+                    <header>
+                        <h2 class="portfolio-block__title">{{ service.post_title }}</h2>
+                    </header>
+                    <p class="portfolio-block__desc">{{ service.meta('type') }}</p>
+                    <p class="portfolio-block__price">Starting at £{{ service.meta('snippet') }}</p>
+                    <div class="portfolio-block__meta">
+                        {{ service.meta('role') }}
+                        {{ service.meta('year') }}s
+                    </div>
+                    {% if service.meta('gallery') %}
+                        <div class="portfolio-block__gallery">
+                            {% for image in service.meta('gallery') %}
+                                <img src="{{ image.url }}" alt="{{ image.alt }}">
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="portfolio-block__right">
+                    <ul class="portfolio-block__features">
+                        {% for item in service.meta('included') %}
+                            <li>{{ item.item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </article>
+        {% endfor %}
+        </div>
+        </div>
+       
+        </div>
+    </div>
+{% endblock %}
