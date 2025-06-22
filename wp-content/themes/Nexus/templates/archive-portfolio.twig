@@ -16,31 +16,23 @@
         <div class="block">
       
         <div class="portfolio-archive__grid">
-        {% for service in services %}
+        {% for portfolio in portfolio %}
             <article class="portfolio-block">
                 <div class="portfolio-block__left">
                     <header>
-                        <h2 class="portfolio-block__title">{{ service.post_title }}</h2>
+                        <h2 class="portfolio-block__title">{{ portfolio.post_title }}</h2>
                     </header>
-                    <p class="portfolio-block__desc">{{ service.meta('type') }}</p>
-                    <p class="portfolio-block__price">Starting at £{{ service.meta('snippet') }}</p>
+                    <p class="portfolio-block__desc">{{ portfolio.meta('type') }}</p>
+                    <p class="portfolio-block__price">{{ portfolio.meta('description') }}</p>
                     <div class="portfolio-block__meta">
-                        {{ service.meta('role') }}
-                        {{ service.meta('year') }}s
+                        {{ portfolio.meta('role') }}
+                        {{ portfolio.meta('year') }}
                     </div>
-                    {% if service.meta('gallery') %}
-                        <div class="portfolio-block__gallery">
-                            {% for image in service.meta('gallery') %}
-                                <img src="{{ image.url }}" alt="{{ image.alt }}">
-                            {% endfor %}
-                        </div>
-                    {% endif %}
                 </div>
                 <div class="portfolio-block__right">
                     <ul class="portfolio-block__features">
-                        {% for item in service.meta('included') %}
-                            <li>{{ item.item }}</li>
-                        {% endfor %}
+                     <img src="{{ portfolio.thumbnail.src }}" alt="{{ portfolio.title }}">
+                        
                     </ul>
                 </div>
             </article>
@@ -51,3 +43,5 @@
         </div>
     </div>
 {% endblock %}
+
+xs
