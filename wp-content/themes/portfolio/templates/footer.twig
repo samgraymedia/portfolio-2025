@@ -19,11 +19,17 @@
       
       <div class="nav-section">
         <h3>Connect</h3>
-          <ul class="contact-info-list">
-                    <li><strong>Email</strong><br /><a class="animated-link" href="mailto:{{ options.contact_email }}">{{ options.contact_email }}</a></li>
-                    <li><strong>Phone</strong><br /><a class="animated-link" href="tel:{{ options.contact_phone }}">{{ options.contact_phone }}</a></li>
-                    <li><strong>Location</strong><br />{{ options.contact_location }}<br />{{ options.contact_availability }}</li>
-                </ul>
+        <ul class="contact-info-list">
+          {% if options.contact_email %}
+            <li><strong>Email</strong><br /><a class="animated-link" href="mailto:{{ options.contact_email }}">{{ options.contact_email }}</a></li>
+          {% endif %}
+          {% if options.contact_phone %}
+            <li><strong>Phone</strong><br /><a class="animated-link" href="tel:{{ options.contact_phone }}">{{ options.contact_phone }}</a></li>
+          {% endif %}
+          {% if options.contact_location %}
+            <li><strong>Location</strong><br />{{ options.contact_location }}{% if options.contact_availability %}<br />{{ options.contact_availability }}{% endif %}</li>
+          {% endif %}
+        </ul>
         <ul class="social-links">
           {% if options.linkedin_url %}
             <li><a href="{{options.linkedin_url}}" aria-label="LinkedIn">LinkedIn</a></li>
