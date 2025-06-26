@@ -1,0 +1,129 @@
+.compact-hero {
+  height: 60vh;
+  min-height: 400px;
+  position: relative;
+  display: flex;
+  background: radial-gradient(
+      circle at 60% 40%,
+      rgba($primary, 0.25) 0%,
+      rgba($primary, 0) 60%
+    ),
+    /* blue */
+      radial-gradient(
+        circle at 30% 60%,
+        rgba($lightPrimary, 0.2) 0%,
+        rgba($lightPrimary, 0) 55%
+      ),
+    /* purple */
+      radial-gradient(
+        circle at 80% 70%,
+        rgba($secondary, 0.2) 0%,
+        rgba($secondary, 0) 60%
+      ); /* peach */
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 0;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    gap: $grid-gap;
+    .compact-hero__content-center {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      width: calc(100% - $grid-gap);
+      h2 {
+        font-size: $font-5xl;
+        font-weight: $font-bold;
+        color: $lightPrimary;
+        margin: 0;
+        span {
+          display: inline-block;
+          font-size: $font-5xl;
+          font-weight: $font-bold;
+          background-image: linear-gradient(to right, $primary, $secondary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+        }
+      }
+      p {
+        font-size: $font-lg;
+        font-weight: $font-regular;
+        color: $black;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@keyframes compactSvg {
+  0%,
+  100% {
+    bottom: 0;
+    right: 0;
+  }
+  50% {
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .compact-hero {
+    margin-top: 68px;
+    height: auto;
+    min-height: 300px;
+    &__content {
+      flex-direction: column;
+      gap: 1.5rem;
+      .compact-hero__content-inner,
+      .compact-hero__image {
+        width: 100%;
+      }
+      .compact-hero__image {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .compact-hero {
+    &__content {
+      gap: 1rem;
+      .compact-hero__content-inner {
+        h2,
+        h2 span {
+          font-size: $font-2xl;
+        }
+        p {
+          font-size: $font-base;
+        }
+      }
+      .compact-hero__image {
+        .compact-hero__image-inner {
+          padding: 1rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

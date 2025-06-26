@@ -43,6 +43,21 @@ acf_add_local_field_group(array(
             'post_type' => 'services',
             'multiple' => 1,
         ),
+        array(
+            'key' => 'field_services_button_text',
+            'label' => 'Button Text',
+            'name' => 'button_text',
+            'type' => 'text',
+            'instructions' => 'Enter the button text',
+        ),
+        array(
+            'key' => 'field_services_button_url',
+            'label' => 'Button URL',
+            'name' => 'button_url',
+            'type' => 'url',
+            'instructions' => 'Enter the button URL',
+        ),
+
     ),
     'location' => array(
         array(

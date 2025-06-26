@@ -21,15 +21,16 @@
             <div class="service-block">
                 <div class="service-block__left">
                     <h2 class="service-block__title">{{ service.title }}</h2>
-                    <p class="service-block__desc">{{ service.meta('snippet') }}</p>
-                    <p class="service-block__price">Starting at £{{ service.meta('price') }}</p>
+                    <p class="service-block__desc">{{ service.meta('service_description') }}</p>
+                    <p class="service-block__price">{{ service.meta('service_price') }}</p>
                 </div>
                 <div class="service-block__right">
                     <ul class="service-block__features">
-                        {% for item in service.meta('included') %}
-                            <li>{{ item.item }}</li>
+                        {% for feature in service.meta('service_features') %}
+                            <li class="services-block__card-feature">{{ feature.service_feature }}</li>
                         {% endfor %}
                     </ul>
+                    
                 </div>
             </div>
         {% endfor %}

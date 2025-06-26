@@ -257,6 +257,10 @@ if ( ! class_exists( 'Timber_Acf_Wp_Blocks' ) ) {
 			$context['slug']       = $slug;
 			$context['is_preview'] = $is_preview;
 			$context['fields']     = \get_fields();
+			
+			// Add ACF options to context for global fields
+			$context['options']    = \get_fields('option');
+			
 			$classes               = array_merge(
 				array( $slug ),
 				isset( $block['className'] ) ? array( $block['className'] ) : array(),

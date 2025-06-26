@@ -1,0 +1,54 @@
+{#
+Title: Contact Form
+Description: A customizable contact form block with form fields and styling options
+Category: forms
+Icon: <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+Keywords: Contact Form, Form Block, Contact
+Mode: auto
+Align: full
+PostTypes: page post
+SupportsAlign: full
+SupportsMode: true
+SupportsMultiple: true
+#}
+
+<div id="contact-form-{{block.id}}" class="contact-form block {{block.classes}}">
+    <div class="wrapper">
+        <div class="contact-form-columns">
+            <div class="contact-form-left">
+                <h2 class="contact-form-title">Start Your Project</h2>
+                <div class="contact-form-fields">
+                    {{ shortcode('[contact-form-7 id="0dc7a44" title="Contact form 1"]') }}
+                </div>
+            </div>
+            <div class="contact-form-right">
+                <h2 class="contact-info-title">{{ options.contact_info_title|default('Get in Touch') }}</h2>
+                <ul class="contact-info-list">
+                    {% if options.contact_email %}
+                        <li><strong>Email</strong><br /><a class="animated-link" href="mailto:{{ options.contact_email }}">{{ options.contact_email }}</a></li>
+                    {% endif %}
+                    {% if options.contact_phone %}
+                        <li><strong>Phone</strong><br /><a class="animated-link" href="tel:{{ options.contact_phone }}">{{ options.contact_phone }}</a></li>
+                    {% endif %}
+                    {% if options.contact_location %}
+                        <li><strong>Location</strong><br />{{ options.contact_location }}<br />{{ options.contact_availability }}</li>
+                    {% endif %}
+                </ul>
+                {# <div class="contact-info-social">
+                    <strong>{{ options.social_title|default('Follow My Work') }}</strong><br />
+                    {% if options.social_links %}
+                        {% for link in options.social_links %}
+                            <a href="{{ link.url }}" target="_blank">{{ link.platform }}</a>
+                        {% endfor %}
+                    {% endif %}
+                </div> #}
+                {% if options.response_time_title and options.response_time_text %}
+                <div class="contact-info-response">
+                    <strong>{{ options.response_time_title }}</strong>
+                    <p>{{ options.response_time_text }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

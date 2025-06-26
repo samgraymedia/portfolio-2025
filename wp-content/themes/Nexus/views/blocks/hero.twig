@@ -17,7 +17,9 @@ SupportsMultiple: true
       <div class="hero__content-inner">
         <h1>{{fields.title}} <span class="hero__colour-title">{{fields.colour_title}}</span></h1>
         <p>{{fields.description}}</p>
-        <a href="{{fields.button_url}}" class="btn btn--primary">{{fields.button_text}}</a>
+        {% if fields.button_url %}
+          <a href="{{fields.button_url}}" class="btn btn--primary">{{fields.button_text}}</a>
+        {% endif %}
       </div>
     
     <div class="hero__image">
