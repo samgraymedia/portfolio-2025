@@ -24,9 +24,15 @@ SupportsMultiple: true
             <div class="contact-form-right">
                 <h2 class="contact-info-title">{{ options.contact_info_title|default('Get in Touch') }}</h2>
                 <ul class="contact-info-list">
-                    <li><strong>Email</strong><br /><a class="animated-link" href="mailto:{{ options.contact_email }}">{{ options.contact_email }}</a></li>
-                    <li><strong>Phone</strong><br /><a class="animated-link" href="tel:{{ options.contact_phone }}">{{ options.contact_phone }}</a></li>
-                    <li><strong>Location</strong><br />{{ options.contact_location }}<br />{{ options.contact_availability }}</li>
+                    {% if options.contact_email %}
+                        <li><strong>Email</strong><br /><a class="animated-link" href="mailto:{{ options.contact_email }}">{{ options.contact_email }}</a></li>
+                    {% endif %}
+                    {% if options.contact_phone %}
+                        <li><strong>Phone</strong><br /><a class="animated-link" href="tel:{{ options.contact_phone }}">{{ options.contact_phone }}</a></li>
+                    {% endif %}
+                    {% if options.contact_location %}
+                        <li><strong>Location</strong><br />{{ options.contact_location }}{% if options.contact_availability %}<br />{{ options.contact_availability }}{% endif %}</li>
+                    {% endif %}
                 </ul>
                 {# <div class="contact-info-social">
                     <strong>{{ options.social_title|default('Follow My Work') }}</strong><br />
