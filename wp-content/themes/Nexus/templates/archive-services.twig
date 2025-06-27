@@ -1,0 +1,42 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% if page.content %}
+        {{ page.content }}
+    {% endif %}
+
+    <div class="services-archive">
+        
+        <div class="services-archive__header block">
+        <div class="wrapper">
+            <h1 class="services-archive__title">Services That Transform</h1> 
+            <p class="services-archive__desc">Comprehensive creative services designed to elevate your brand and create meaningful connections with your audience.</p>
+        </div>
+        </div>
+        <div class="wrapper">
+        <div class="block">
+      
+        <div class="services-archive__grid">
+        {% for service in services %}
+            <div class="service-block">
+                <div class="service-block__left">
+                    <h2 class="service-block__title">{{ service.title }}</h2>
+                    <p class="service-block__desc">{{ service.meta('service_description') }}</p>
+                    <p class="service-block__price">{{ service.meta('service_price') }}</p>
+                </div>
+                <div class="service-block__right">
+                    <ul class="service-block__features">
+                        {% for feature in service.meta('service_features') %}
+                            <li class="services-block__card-feature">{{ feature.service_feature }}</li>
+                        {% endfor %}
+                    </ul>
+                    
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        </div>
+       
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% if page.content %}
+        {{ page.content }}
+    {% endif %}
+    <div class="portfolio-archive">
+        
+        <div class="portfolio-archive__header block">
+        <div class="wrapper">
+            <h1 class="portfolio-archive__title">Our Portfolio</h1> 
+            <p class="portfolio-archive__desc">We offer a range of services to help you achieve your goals.</p>
+        </div>
+        </div>
+        <div class="wrapper">
+        <div class="block">
+      
+        <div class="portfolio-archive__grid">
+        {% for portfolio in portfolio %}
+            <article class="portfolio-block">
+                <div class="portfolio-block__left">
+                    <header>
+                        <h2 class="portfolio-block__title">{{ portfolio.post_title }}</h2>
+                    </header>
+                    <p class="portfolio-block__desc">{{ portfolio.meta('type') }}</p>
+                    <p class="portfolio-block__price">{{ portfolio.meta('description') }}</p>
+                    <div class="portfolio-block__meta">
+                        {{ portfolio.meta('role') }}
+                        {{ portfolio.meta('year') }}
+                    </div>
+                </div>
+                <div class="portfolio-block__right">
+                    <ul class="portfolio-block__features">
+                     <img src="{{ portfolio.thumbnail.src }}" alt="{{ portfolio.title }}">
+                        
+                    </ul>
+                </div>
+            </article>
+        {% endfor %}
+        </div>
+        </div>
+       
+        </div>
+    </div>
+{% endblock %}
+
+xs

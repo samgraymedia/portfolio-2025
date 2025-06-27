@@ -1,0 +1,106 @@
+.large-cta {
+  height: 100vh;
+  background-image: linear-gradient(
+    120deg,
+    rgba($darkerPrimary, 0.9) 0%,
+    rgba($accent, 0.7) 100%
+  );
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Animated background overlay
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: linear-gradient(
+      120deg,
+      rgba($darkerPrimary, 0.9) 0%,
+      rgba($accent, 0.7) 100%
+    );
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    filter: blur(32px) brightness(1.2);
+    opacity: 0.8;
+    pointer-events: none;
+    transition: filter 0.5s;
+    animation: cta-bg-move 4s linear infinite alternate;
+  }
+
+  // Subtle box-shadow on hover
+  &:hover {
+    &::before {
+      filter: blur(40px) brightness(1.3);
+    }
+    .large-cta__title span {
+      background-position: 100% 0;
+    }
+    .wrapper {
+      transform: scale(1.03);
+    }
+  }
+
+  .wrapper {
+    max-width: 1000px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__inner {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: $grid-gap;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__title {
+    font-size: $font-5xl;
+    font-weight: $font-bold;
+    color: $white;
+    text-align: center;
+    margin-bottom: 0.5em;
+    span {
+      display: block;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      background-image: linear-gradient(90deg, $primary, $secondary, $primary);
+      background-size: 200% auto;
+      background-position: 0 0;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      transition: background-position 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.4s;
+    }
+  }
+
+  &__description {
+    font-size: $font-lg;
+    font-weight: $font-regular;
+    color: $white;
+    text-align: center;
+    text-shadow: 0 1px 8px rgba($darkerPrimary, 0.2);
+    margin-bottom: 1.5em;
+  }
+}
+
+// Keyframes for animated background
+@keyframes cta-bg-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}

@@ -1,0 +1,187 @@
+.btn {
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-size: $font-base;
+  font-weight: $font-semibold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+  &:hover {
+    color: $white;
+  }
+
+  &--primary {
+    background: linear-gradient(45deg, $primary, darken($primary, 10%));
+    color: $white;
+    border: 2px solid $primary;
+    box-shadow: 0 6px 20px rgba($primary, 0.4), 0 0 0 0 rgba($primary, 0.7);
+    animation: pulse 2s infinite;
+
+    &:hover {
+      transform: translateY(-6px) scale(1.05) rotate(1deg);
+      border-color: lighten($primary, 20%);
+      animation: none;
+    }
+
+    &:active {
+      transform: translateY(-2px) scale(0.98);
+      box-shadow: 0 8px 25px rgba($primary, 0.5);
+    }
+  }
+
+  &--secondary {
+    background: linear-gradient(45deg, $secondary, darken($secondary, 10%));
+    color: $white;
+    border: 2px solid $secondary;
+    box-shadow: 0 6px 20px rgba($secondary, 0.4), 0 0 0 0 rgba($secondary, 0.7);
+    animation: pulse 2s infinite;
+
+    &:hover {
+      transform: translateY(-6px) scale(1.05) rotate(-1deg);
+      border-color: lighten($secondary, 20%);
+      animation: none;
+    }
+
+    &:active {
+      transform: translateY(-2px) scale(0.98);
+      box-shadow: 0 8px 25px rgba($secondary, 0.5);
+    }
+  }
+
+  &--glass {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.05)
+    );
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: $white;
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+    &:hover {
+      transform: translateY(-8px) scale(1.08) rotate(2deg);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.1)
+      );
+      box-shadow: 0 20px 40px rgba(255, 255, 255, 0.3),
+        0 0 0 15px rgba(255, 255, 255, 0.1),
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(30px);
+    }
+
+    &:active {
+      transform: translateY(-3px) scale(0.97);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.pill {
+  background: linear-gradient(
+    135deg,
+    rgba($lightPrimary, 0.3),
+    rgba($primary, 0.1)
+  );
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-size: $font-sm;
+  font-weight: $font-semibold;
+  width: fit-content;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent
+    );
+    transition: left 0.8s ease;
+  }
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      rgba($lightPrimary, 0.6),
+      rgba($primary, 0.4)
+    );
+    transform: scale(1.15) rotate(2deg);
+    box-shadow: 0 8px 25px rgba($lightPrimary, 0.4),
+      0 0 0 5px rgba($primary, 0.1);
+    border-color: rgba($primary, 0.5);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &__text {
+    color: $darkPrimary;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Keyframe Animations
+// @keyframes pulse {
+//   0% {
+//     box-shadow: 0 6px 20px rgba($primary, 0.4), 0 0 0 0 rgba($primary, 0.7);
+//   }
+//   70% {
+//     box-shadow: 0 6px 20px rgba($primary, 0.4), 0 0 0 10px rgba($primary, 0);
+//   }
+//   100% {
+//     box-shadow: 0 6px 20px rgba($primary, 0.4), 0 0 0 0 rgba($primary, 0);
+//   }
+// }
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

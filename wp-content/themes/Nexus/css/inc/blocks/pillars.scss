@@ -1,0 +1,110 @@
+.pillars {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  &__title {
+    text-align: center;
+    h2 {
+      font-size: $font-4xl;
+      font-weight: $font-bold;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      span {
+        font-size: inherit;
+        font-weight: inherit;
+        display: block;
+        background-image: linear-gradient(to right, $primary, $secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+    }
+    p {
+      font-size: $font-lg;
+      font-weight: $font-regular;
+      color: $black;
+      line-height: 1.5;
+    }
+  }
+  &__items {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+    }
+  }
+  &__item {
+    position: relative;
+    background: $lightGray;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 20px;
+    gap: 2rem;
+    transition: all 0.3s ease-in-out;
+
+    @media (max-width: $breakpoint-md) {
+      width: 100%;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+          to right,
+          rgba($primary, 0.35) 0%,
+          rgba($primary, 0) 60%
+        ),
+        linear-gradient(
+          to bottom right,
+          rgba($lightPrimary, 0.25) 0%,
+          rgba($lightPrimary, 0) 55%
+        ),
+        linear-gradient(
+          to top left,
+          rgba($secondary, 0.25) 0%,
+          rgba($secondary, 0) 60%
+        );
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      z-index: 0;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    &-icon {
+      width: 64px;
+      height: 64px;
+      background-image: linear-gradient(to bottom, $primary, $secondary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease-in-out;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    &:hover {
+      box-shadow: 0 0 10px 0 rgba($black, 0.2);
+      .pillars__item-icon {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

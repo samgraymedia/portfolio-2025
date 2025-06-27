@@ -1,0 +1,99 @@
+.testimonials {
+  &__inner {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: $grid-gap;
+  }
+  &__title {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: $grid-gap;
+    h2 {
+      font-size: $font-5xl;
+      span {
+        font-size: inherit;
+        font-weight: inherit;
+        display: block;
+        background-image: linear-gradient(to right, $primary, $secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+    }
+    p {
+      font-size: $font-lg;
+      font-weight: $font-regular;
+      color: $black;
+      line-height: 1.5;
+    }
+  }
+  &__items {
+    display: flex;
+    flex-flow: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: $grid-gap;
+    .testimonials__item {
+      padding: 1rem;
+      text-align: center;
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      align-self: stretch;
+      min-height: 220px;
+      position: relative;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      overflow: hidden;
+      background: #fff;
+      border-radius: 18px;
+      z-index: 1;
+      &:hover,
+      &:focus {
+        transform: translateY(-12px) scale(1.04);
+        & > p {
+          background-image: linear-gradient(90deg, $primary, $secondary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+          transition: background-image 0.5s;
+        }
+        .testimonials__item-details {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: 0.1s;
+        }
+      }
+      p {
+        font-size: $font-lg;
+        font-weight: $font-regular;
+        color: $black;
+        line-height: 1.5;
+        transition: background-image 0.5s, color 0.5s;
+      }
+      &-details {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+        opacity: 0.6;
+        transform: translateY(12px);
+        transition: opacity 0.4s, transform 0.4s;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .testimonials {
+    &__items {
+      flex-direction: column;
+    }
+  }
+}
