@@ -27,7 +27,8 @@
     inset: 0;
     border-radius: 1.5rem;
     padding: 2px;
-    background: linear-gradient(120deg, $primary, $secondary, $accent);
+    background: linear-gradient(90deg, $primary, $secondary, $accent, $primary);
+    background-size: 300% 100%;
     -webkit-mask: linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -36,6 +37,7 @@
     z-index: 2;
     opacity: 0;
     transition: opacity 0.3s;
+    animation: gradientShift 3s ease infinite;
   }
   &:hover {
     box-shadow: 0 8px 32px 0 rgba($black, 0.16),
@@ -134,7 +136,7 @@
     font-size: $font-md;
     color: $darkPrimary;
     font-weight: $font-medium;
-    transition: color 0.2s;
+    transition: all 0.2s;
     &:before {
       content: "";
       position: absolute;
@@ -150,11 +152,12 @@
     }
     &:hover {
       color: $accent;
+      font-weight: $font-bold;
       &:before {
         box-shadow: 0 0 0 4px rgba($accent, 0.18),
           0 0 8px 2px rgba($primary, 0.12);
         background: linear-gradient(135deg, $accent 0%, $secondary 100%);
-        transform: scale(1.15);
+        // transform: scale(1.15);
       }
     }
   }
@@ -239,5 +242,18 @@
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+// Rotating Gradient Animation
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
